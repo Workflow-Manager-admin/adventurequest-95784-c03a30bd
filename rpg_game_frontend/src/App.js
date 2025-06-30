@@ -526,4 +526,11 @@ function clearTile(m, x, y) {
   return newM;
 }
 
-export default App;
+export {
+  App as default,
+  StatusBar,
+  LeftPanel,
+  RightPanel,
+  PlayerSprite,
+  EnemySprite
+};
