@@ -103,6 +103,98 @@
   margin-top: 18px;
   margin-bottom: 18px;
   padding-bottom: 10px;
+  /* For overlay positioning */
+  position: relative;
+}
+
+/* --- Prominent floating HP overlay --- */
+.hp-overlay {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  z-index: 50;
+  font-size: 2.18rem;
+  font-weight: 700;
+  background: #fff3e0;
+  border-radius: 14px 44px 22px 16px;
+  padding: 12px 30px 8px 18px;
+  color: #d32f2f;
+  box-shadow: 0 5px 12px #f443360d, 0 2px 6px #e5737315;
+  border: 3px solid #ff1744;
+  outline: 3.5px solid #fffde7;
+  display: flex;
+  align-items: baseline;
+  letter-spacing: 0.02em;
+  transition: background 0.16s, color 0.16s;
+  user-select: none;
+}
+
+[data-theme="dark"] .hp-overlay {
+  background: #311111;
+  color: #ffb6b6;
+  border: 3px solid #ff6372;
+  outline: 3.5px solid #2a0030;
+}
+
+.hp-overlay-label {
+  font-size: 1.28rem;
+  color: #bf360c;
+  background: #fffde8;
+  border-radius: 7px;
+  padding: 2.5px 7px;
+  font-weight: 900;
+  margin-right: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hp-overlay-current {
+  font-size: 2.35rem;
+  color: #ff1744;
+  text-shadow: 1px 1px 4px #fff0efbb;
+  font-weight: 900;
+  margin-right: 8px;
+}
+
+.hp-overlay-max {
+  font-size: 1.32rem;
+  color: #616161;
+}
+
+[data-theme="dark"] .hp-overlay-label {
+  background: #260609;
+  color: #ffb300;
+}
+
+[data-theme="dark"] .hp-overlay-current {
+  color: #ffa6ad;
+  text-shadow: 1px 1px 8px #52070788;
+}
+
+[data-theme="dark"] .hp-overlay-max {
+  color: #ffb6b6;
+}
+
+/* Responsive for overlay */
+@media (max-width: 480px) {
+  .hp-overlay {
+    right: 8px;
+    bottom: 10px;
+    font-size: 1.18rem;
+    padding: 7px 14px 5px 7px;
+  }
+  .hp-overlay-label {
+    font-size: 0.89rem;
+    margin-right: 8px;
+    padding: 1px 5.5px;
+  }
+  .hp-overlay-current {
+    font-size: 1.35rem;
+    margin-right: 4px;
+  }
+  .hp-overlay-max {
+    font-size: 0.99rem;
+  }
 }
 
 .canvas-title {
