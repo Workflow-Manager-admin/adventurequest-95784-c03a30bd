@@ -324,15 +324,6 @@ function App() {
           usePotion={usePotion}
         />
         <main className="main-canvas" style={{position: "relative"}}>
-          {/* Prominent HP overlay */}
-          <div
-            className="hp-overlay"
-            aria-label={`Current HP: ${player.hp} of ${player.maxHp}`}
-          >
-            <span className="hp-overlay-label">HP</span>{" "}
-            <span className="hp-overlay-current">{player.hp}</span>
-            <span className="hp-overlay-max">/ {player.maxHp}</span>
-          </div>
           <div className="canvas-title">Adventure Map</div>
           {renderMap()}
           <div className="legend-row">
@@ -341,6 +332,15 @@ function App() {
             <span role="img" aria-label="Potion">🧪</span> = Potion
           </div>
         </main>
+        {/* HP overlay is now outside the main canvas and below it */}
+        <div
+          className="hp-overlay static-below-canvas"
+          aria-label={`Current HP: ${player.hp} of ${player.maxHp}`}
+        >
+          <span className="hp-overlay-label">HP</span>{" "}
+          <span className="hp-overlay-current">{player.hp}</span>
+          <span className="hp-overlay-max">/ {player.maxHp}</span>
+        </div>
         <RightPanel
           onMove={movePlayer}
           onAttack={attackEnemy}

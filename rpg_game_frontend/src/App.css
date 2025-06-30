@@ -107,8 +107,9 @@
   position: relative;
 }
 
-/* --- Prominent floating HP overlay --- */
+/* --- Drastically reduced and repositioned HP overlay --- */
 .hp-overlay {
+  /* No longer absolute by default; managed by .static-below-canvas if present */
   position: absolute;
   right: 20px;
   bottom: 18px;
@@ -128,6 +129,102 @@
   transition: background 0.16s, color 0.16s;
   user-select: none;
 }
+
+/* New static position when class is used below canvas */
+.static-below-canvas {
+  position: static !important;
+  margin: 0 auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 120px;
+  max-width: 260px;
+  /* Visually center below canvas area */
+  margin-top: -7px;
+  margin-bottom: 15px;
+  /* No shadow if desired for reduced prominence */
+  box-shadow: 0 1.5px 3px #f443360d, 0 1px 2px #e573730d;
+  border-radius: 12px;
+  border-width: 2px;
+  padding: 4px 12px 3px 8px;
+  font-size: 0.65rem;
+}
+
+/* HP overlay drastically scaled down for below-canvas */
+.static-below-canvas .hp-overlay-label {
+  font-size: 0.48rem;
+  padding: 1.5px 4.5px;
+  margin-right: 7px;
+  border-radius: 4px;
+}
+.static-below-canvas .hp-overlay-current {
+  font-size: 0.82rem;
+  margin-right: 3px;
+}
+.static-below-canvas .hp-overlay-max {
+  font-size: 0.54rem;
+}
+
+.static-below-canvas {
+  font-size: 0.65rem !important;
+  padding: 4.5px 11px 4px 7px !important;
+}
+
+.static-below-canvas .hp-overlay-label,
+.static-below-canvas .hp-overlay-current,
+.static-below-canvas .hp-overlay-max {
+  line-height: 1.05 !important;
+}
+
+@media (max-width: 900px) {
+  .static-below-canvas {
+    max-width: 96vw;
+    font-size: 0.62rem !important;
+    padding: 3px 8px 2.5px 6px !important;
+  }
+  .static-below-canvas .hp-overlay-label {
+    font-size: 0.44rem;
+    padding: 1px 3px;
+    margin-right: 4.5px;
+  }
+  .static-below-canvas .hp-overlay-current {
+    font-size: 0.76rem;
+  }
+  .static-below-canvas .hp-overlay-max {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .static-below-canvas {
+    font-size: 0.49rem !important;
+    padding: 2px 4.5px 2px 3.5px !important;
+    margin-bottom: 9px;
+  }
+  .static-below-canvas .hp-overlay-label {
+    font-size: 0.33rem;
+    margin-right: 2.5px;
+    padding: 0.25px 2px;
+  }
+  .static-below-canvas .hp-overlay-current {
+    font-size: 0.62rem;
+    margin-right: 2px;
+  }
+  .static-below-canvas .hp-overlay-max {
+    font-size: 0.38rem;
+  }
+}
+
+/* Accessibility: higher contrast for below-canvas overlay */
+.static-below-canvas {
+  background: #fffdf4;
+  color: #ce2525;
+  border-color: #e34343;
+  outline: none;
+}
+
+/* Keep original overlay styles for any future floating overlays */
 
 [data-theme="dark"] .hp-overlay {
   background: #311111;
