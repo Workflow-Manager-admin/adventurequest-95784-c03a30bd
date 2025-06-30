@@ -1,82 +1,76 @@
-# Lightweight React Template for KAVIA
+# RPG Game Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A minimal React frontend for a lightweight action/adventure RPG game. Play with keyboard/mouse, manage inventory, and battle enemies on a dynamic map.
 
 ## Features
+- 🌟 Minimal dependencies (React, CSS only)
+- 🎮 Keyboard & mouse controls for classic RPG action
+- 😈 Enemy encounters and combat
+- 🧳 Inventory with healing potions
+- 🌓 Light & dark theme toggle
+- ❓ Built-in "How to Play" guide in the app
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+---
 
-## Getting Started
+## How to Run Locally
 
-In the project directory, you can run:
+### 1. Install Node.js
+Ensure Node.js and npm are installed. Download from [nodejs.org](https://nodejs.org/).
 
-### `npm start`
+### 2. Install project dependencies
+Open a terminal in this directory and run:
+```sh
+npm install
+```
+*All required dependencies (React, ReactDOM, react-scripts, etc.) will be installed.*
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+**For testing:**  
+This app uses [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom) for enhanced assertions.  
+It is included as a dev dependency. If you encounter issues running tests, (re)install it with:
+```sh
+npm install --save-dev @testing-library/jest-dom
 ```
 
-### Components
+### 3. Start the development server
+```sh
+npm start
+```
+This will open the game in your browser at [http://localhost:3000](http://localhost:3000).
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+### 4. Run tests (optional)
+```sh
+npm test
+```
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+### 5. Build for production
+```sh
+npm run build
+```
+
+---
+
+## In-Game Instructions
+
+- Click the **❓ How to Play** button (top-left of the game) for controls, movement, goals, and combat details.
+- Standard controls: Arrow keys or WASD to move, Space to attack, 'I' to open inventory.
+- Collect potions on the map to heal, defeat enemies to survive!
+
+---
+
+## File Structure
+- `src/App.js`: Main game logic and UI components.
+- `src/App.css`: Themes and UI styling.
+- `src/index.js`: Entry point.
+- `src/App.test.js`: UI/tests using React Testing Library.
+
+---
+
+## Customization
+You can freely modify UI styles in `src/App.css` and game logic/components in `src/App.js`.
+
+---
 
 ## Learn More
+- [React documentation](https://reactjs.org/)
+- [Create React App User Guide](https://facebook.github.io/create-react-app/docs/getting-started)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

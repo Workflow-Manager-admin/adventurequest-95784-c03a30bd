@@ -9,6 +9,46 @@ import "./App.css";
  * Main layout: Map/Inventory (left), Game view (center), Action buttons (right), Status at top.
  */
 
+/** Game instructions (in-app modal) */
+function HowToPlayText({ setShowHelp }) {
+  return (
+    <div style={{ textAlign: "left" }}>
+      <h2 style={{ marginTop: 0 }}>How to Play</h2>
+      <ul style={{ marginBottom: 10, marginTop: 0 }}>
+        <li>
+          <b>Move:</b> Arrow keys or W/A/S/D, or click on adjacent map tiles
+        </li>
+        <li>
+          <b>Attack:</b> Press <b>Space</b> or click "🗡️ Attack" – must face enemy
+        </li>
+        <li>
+          <b>Inventory:</b> Press <b>I</b> or click "🧳 Inventory"
+        </li>
+        <li>
+          <b>Use Potion:</b> Open inventory and click "Use" on a Potion to heal 5 HP
+        </li>
+        <li>
+          <b>Goal:</b> Defeat enemies (👾), collect potions (🧪), and survive!
+        </li>
+        <li>
+          Enemies may counterattack. If your HP drops to 0, you'll respawn.
+        </li>
+      </ul>
+      <div style={{ fontSize: "0.98rem", color: "#555" }}>
+        Tip: Use theme toggle (top right) for dark/light mode.<br />
+        Keys: <b>↑,↓,←,→</b> or <b>WASD</b> to move, <b>Space</b> to attack, <b>I</b> inventory.
+      </div>
+      <button
+        className="close-btn"
+        style={{ marginTop: 18, width: "100%" }}
+        onClick={() => setShowHelp(false)}
+      >
+        Close
+      </button>
+    </div>
+  );
+}
+
 // PUBLIC_INTERFACE
 function App() {
   // Game state hooks
@@ -25,6 +65,7 @@ function App() {
   const [message, setMessage] = useState("Explore the map!");
   const [enemy, setEnemy] = useState(spawnEnemy(8, 8));
   const [showInventory, setShowInventory] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
 
   // Keyboard controls
   useEffect(() => {
@@ -220,6 +261,56 @@ function App() {
   // Render
   return (
     <div className="rpg-app App">
+      {/* How to Play floating button */}
+      <button
+        className="howtoplay-btn"
+        aria-label="How to Play"
+        title="How to Play"
+        style={{
+          position: "absolute",
+          left: 16,
+          top: 16,
+          zIndex: 110,
+          background: "#1976d2",
+          color: "#fff",
+          border: "none",
+          borderRadius: 9,
+          padding: "7px 18px",
+          fontSize: "1rem",
+          fontWeight: 600,
+          letterSpacing: "0.025em",
+          boxShadow: "0 1px 7px #ccd6ff33",
+          cursor: "pointer",
+        }}
+        onClick={() => setShowHelp(true)}
+      >
+        ❓ How to Play
+      </button>
+      {/* Modal */}
+      {showHelp && (
+        <div style={{
+          position:"fixed",
+          top:0,left:0,right:0,bottom:0,
+          background: "rgba(30,40,60,0.24)",
+          zIndex:199,
+          display: "flex",
+          alignItems:"center",
+          justifyContent:"center"
+        }}>
+          <div style={{
+            background:"#fff",
+            color:"#222",
+            minWidth:330,
+            maxWidth:420,
+            borderRadius:18,
+            boxShadow:"0 6px 28px #26323833",
+            padding:"32px 24px",
+            border:"2.5px solid #1976d2"
+          }}>
+            <HowToPlayText setShowHelp={setShowHelp} />
+          </div>
+        </div>
+      )}
       <StatusBar
         hp={player.hp}
         maxHp={player.maxHp}

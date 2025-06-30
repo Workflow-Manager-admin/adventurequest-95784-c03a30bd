@@ -283,6 +283,11 @@
 
 /* Theme toggle adjustments */
 .theme-toggle {
+
+/* How to Play button (help modal) */
+.howtoplay-btn {
+  /* Custom style defined inline in App.js for easier customization */
+}
   position: absolute;
   top: 20px;
   right: 20px;
